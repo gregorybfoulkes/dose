@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 +++
 title = "About"
 date = 2023-02-23
@@ -26,3 +27,6 @@ Today, I work as a contractor and run my own small business, bringing together t
 
 This blog is one of my most serious and meaningful efforts yet: a consistent, thoughtful practice of creating, learning, and sharing work in public. It is a space for reflection, exploration, and gradual progress — a record of my journey toward deeper understanding, better craft, and a more intentional life.
 
+=======
+
+>>>>>>> c6f2cc0 (Agent Host changes for agents/simplified-ui-redesign)
