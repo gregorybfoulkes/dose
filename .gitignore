@@ -1,3 +1,4 @@
 static/processed_images
 public
 .ssh/
+.ssh.pub
