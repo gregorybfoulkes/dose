@@ -1,7 +1,8 @@
-title = "oltdaniel"
+title = "Greg"
 
 # The URL the site will be built for
-base_url = "https://oltdaniel.github.io/dose"
+base_url = "https://gregorybfoulkes.github.io/dose"
+description = "A quiet personal site for writing."
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -9,9 +10,7 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
-taxonomies = [
-    {name = "tags"}
-]
+taxonomies = [{ name = "tags" }]
 
 [languages.de]
 # No specific translations
@@ -22,7 +21,9 @@ taxonomies = [
 theme = "dark-plus"
 
 [extra]
-social_media = [
-    {name = "GitHub", url = "https://github.com/oltdaniel"},
-    {name = "Twitter", url = "https://twitter.com/@twitter"},
-]
+[extra.author]
+name = "Greg"
+role = "Role not specified"
+about = "A quiet space for learning, making, and writing."
+email = ""
+social_links = []

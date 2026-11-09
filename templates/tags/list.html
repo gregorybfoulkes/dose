@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <header>
-    <p><a href="..">..</a>/tags</p>
-    <h4>Tags</h4>
-  </header>
-  <main>
-    <div class="chips">
-    {% for term in terms %}
-      <p onclick="redirect('{{ term.permalink }}')" style="cursor: pointer;">
-        {{ term.pages | length }}x <span class="tag">{{ term.name }}</span>
-      </p>
-    {% endfor %}
-    </div>
-  </main>
-{% endblock content %}
+    <main id="main-content">
+        <h1 class="section-title">Tags</h1>
+        <ul class="post-list">
+            {% for term in terms %}
+            <li>
+                <a class="post-link" href="{{ term.permalink }}">
+                    <span class="post-marker" aria-hidden="true"></span>
+                    <span class="post-title">{{ term.name }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock content %}

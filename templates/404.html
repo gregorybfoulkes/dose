@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    404
-{% endblock content %}
+    <main id="main-content">
+        <h1 class="article-title">Page not found</h1>
+        <p>The page you’re looking for doesn’t exist.</p>
+        <p><a href="{{ config.base_url | safe }}">Return to writing</a></p>
+    </main>
+{% endblock content %}

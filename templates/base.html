@@ -1,59 +1,40 @@
 <!doctype html>
 <html lang="{{ lang }}">
     <head>
-        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-        <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-        {% block site_meta %}
-        <meta name="robots" content="index,follow">
-        <meta name="googlebot" content="index,follow">
-
-        <meta name="google" content="nositelinkssearchbox">
-        <meta name="google" content="notranslate">
-        {% endblock site_meta %}
-
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {% block page_meta %}
         {% if config.description %}
         <meta name="description" content="{{ config.description | truncate(length=150) }}">
         {% endif %}
         {% endblock page_meta %}
-
-        {% block css %}
-        <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet"/>
-        {% endblock css %}
-        <title>{% block title %}{{ config.title }}{% endblock title%}</title>
+        <link href="{{ get_url(path='style.css', trailing_slash=false) | safe }}" rel="stylesheet">
+        <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     </head>
     <body>
-        <script>
-            function evaluate_prefers_color() {
-                if(localStorage.getItem('prefers-color') === 'dark') {
-                    document.body.classList.add('dark');
-                } else if(localStorage.getItem('prefers-color') === 'light') {
-                    document.body.classList.remove('dark');
-                } else if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    document.body.classList.add('dark');
-                }
-            }
-            evaluate_prefers_color();
-        </script>
-        {% block content %}
-            <p>please fill this with a template</p>
-        {% endblock content %}
-        <footer>
-            <hr text="&copy; Copyright {{ now() | date(format='%Y') }}" />
-            {% if config.extra.social_media and config.extra.social_media | length > 0 %}
-            <div class="footer-social-media">
-                <a onclick="toggle_prefers_color()">Toggle Theme</a>
-                {% for social in config.extra.social_media %}
-                    <a href="{{ social.url | safe }}" target="_blank">{{ social.name }}</a>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </footer>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <div class="site-shell">
+            <header class="site-header">
+                <a class="site-name" href="{{ config.base_url | safe }}">{{ config.title }}</a>
+            </header>
+            {% block content %}
+                <main id="main-content"></main>
+            {% endblock content %}
+            <footer class="site-footer">
+                <p class="author-name">{{ config.extra.author.name }}</p>
+                <p class="author-role">{{ config.extra.author.role }}</p>
+                <p class="author-about">{{ config.extra.author.about }}</p>
+                {% if config.extra.author.email or config.extra.author.social_links | length > 0 %}
+                <ul class="contact-links" aria-label="Contact links">
+                    {% if config.extra.author.email %}
+                    <li><a href="mailto:{{ config.extra.author.email }}">{{ config.extra.author.email }}</a></li>
+                    {% endif %}
+                    {% for social in config.extra.author.social_links %}
+                    <li><a href="{{ social.url }}" rel="noopener noreferrer">{{ social.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </footer>
+        </div>
     </body>
-
-    {% block js %}
-        <script src="{{ get_url(path='js/script.js', trailing_slash=false) | safe }}"/></script>
-    {% endblock js %}
-</html>
+</html>

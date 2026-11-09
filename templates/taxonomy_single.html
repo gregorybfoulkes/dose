@@ -4,11 +4,11 @@
 
 {% block content %}
     <main id="main-content">
-        <h1>{{ term.name }}</h1>
+        <h1 class="section-title">{{ term.name }}</h1>
         <ul class="post-list">
         {% for page in term.pages %}
             <li>
-                <a class="post-link" href="{{ page.permalink | safe }}">
+                <a class="post-link" href="{{ page.permalink }}">
                     <span class="post-marker" aria-hidden="true"></span>
                     <span class="post-title">{{ page.title }}</span>
                     {% if page.date %}<time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format='%Y-%m-%d') }}</time>{% endif %}

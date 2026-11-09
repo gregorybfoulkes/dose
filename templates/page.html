@@ -4,16 +4,16 @@
 {% endblock %}
 {% block page_meta %}
 {% if page.description %}
-    <meta content="{{ page.description | truncate(length=150) }}" name="description"/>
+    <meta name="description" content="{{ page.description | truncate(length=150) }}">
 {% endif %}
 {% endblock page_meta %}
 {% block content %}
     <main class="article-content" id="main-content">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <nav class="breadcrumbs" aria-label="Writing navigation">
             <a href="{{ config.base_url | safe }}">All writing</a>
         </nav>
         <article>
-        <h1>{{ page.title }}</h1>
+        <h1 class="article-title">{{ page.title }}</h1>
         {% if page.date and page.title != "About" %}
         <p class="post-meta"><time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format='%Y-%m-%d') }}</time></p>
         {% endif %}
@@ -32,4 +32,4 @@
         </div>
         </article>
     </main>
-{% endblock content %}
+{% endblock content %}

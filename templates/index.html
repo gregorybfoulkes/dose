@@ -2,7 +2,7 @@
 
 {% block content %}
     <main id="main-content">
-        <h1>Writing</h1>
+        <h1 class="section-title">Writing</h1>
         {% set_global has_posts = false %}
         {% for page in section.pages %}
             {% if not page.extra.hide_from_feed %}
@@ -10,11 +10,11 @@
             {% endif %}
         {% endfor %}
         {% if has_posts %}
-        <ul class="post-list">
+        <ul class="post-list" aria-label="Articles">
         {% for page in section.pages %}
             {% if not page.extra.hide_from_feed %}
             <li>
-                <a class="post-link" href="{{ page.permalink | safe }}">
+                <a class="post-link" href="{{ page.permalink }}">
                     <span class="post-marker" aria-hidden="true"></span>
                     <span class="post-title">{{ page.title }}</span>
                     {% if page.date %}
@@ -26,7 +26,7 @@
         {% endfor %}
         </ul>
         {% else %}
-        <p class="empty-state">No writing yet.</p>
+        <p>No writing yet.</p>
         {% endif %}
     </main>
 {% endblock content %}
