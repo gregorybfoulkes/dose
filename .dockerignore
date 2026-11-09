@@ -1,0 +1,6 @@
+.git
+.ssh
+.ssh.pub
+public
+target
+.DS_Store

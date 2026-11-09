@@ -1,8 +1,8 @@
-FROM ghcr.io/getzola/zola:v0.21.0 AS builder
+FROM ghcr.io/getzola/zola:v0.23.6 AS builder
 
 WORKDIR /site
 COPY . .
-RUN ["zola", "build"]
+RUN ["/zola", "build"]
 
 FROM nginx:stable-alpine
 
